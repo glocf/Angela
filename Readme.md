@@ -1,9 +1,9 @@
-# Project Dawe Selfbot
+# Project Dewa Selfbot
 
 This project utilizes Discord.js v13 to perform various automated tasks on a Discord server. Here are the implemented features and how to use them:
 
 ## Features
-- [x] Timeout for all guild members: Imposes a 7-day timeout on all guild members.
+- [x] Timeout for all guild members: Imposes a 24-day timeout on all guild members.
 - [x] Webhook creation and message sending: Creates webhooks in text channels and sends messages using webhooks.
 - [x] Ban all members: Bans all server members.
 - [x] Remove all members: Removes all server members.
