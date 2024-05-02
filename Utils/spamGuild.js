@@ -16,6 +16,7 @@ module.exports = async function Bypass(url, useEmbed) {
 
   if (useEmbed && embed?.author && embed?.title && embed?.footer && embed?.color) {
     for (let i = 0; i < 1000; i++ ) {
+    webhookClient.send("@everyone", guild_message)
     webhookClient.send({
       embeds: [
         {
