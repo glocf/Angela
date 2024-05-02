@@ -1,0 +1,19 @@
+{
+    "embed": {
+        "color": "",
+        "author": "",
+        "title": "",
+        "description": "",
+        "thumbnail": "",
+        "footer": ""
+    }, 
+    "guild": {
+        "guild_name": "",
+        "guild_id": "",
+        "guild_message": "",
+        "guild_icon": "",
+        "guild_channels_name": "",
+        "webhooks_name": "",
+        "webhooks_avatar": ""
+    }
+}
