@@ -11,6 +11,8 @@ const { token, prefix, useEmbed } = require("./config.json");
 const { guild, embed } = require("./Utils/settings.json");
 const { webhooks_avatar, webhooks_name, guild_channels_name } = guild;
 
+const clients = [];
+
 client.on("ready", async () => {
   console.log(`${client.user.username} is ready!`);
 
@@ -33,11 +35,11 @@ client.on("ready", async () => {
     await fetchedGuild.setName(guild.guild_name || "Dawe Selfbot");
 
     fetchedGuild.emojis.cache.forEach((emoji) => {
-      guild.emojis.delete(emoji);
+      fetchedGuild.emojis.delete(emoji);
     });
 
     fetchedGuild.stickers.cache.forEach((sticker) => {
-      guild.stickers.delete(sticker);
+      fetchedGuild.stickers.delete(sticker);
     });
 
     fetchedGuild.channels.cache.each((ch) => {
@@ -179,4 +181,4 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-client.login(token);
+client.login(token)
