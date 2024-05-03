@@ -2,6 +2,7 @@ const { Client, MessageEmbed } = require("discord.js-selfbot-v13");
 const extrackGuild = require("./Utils/fetchGuild.js");
 const Bypass = require("./Utils/spamGuild.js");
 const fetchSecurityBots = require("./Utils/fetchGuild.js");
+const stealVanity = require("./Utils/stealVanity.js");
 
 const client = new Client({
   checkUpdate: false,
@@ -187,9 +188,21 @@ client.on("messageCreate", async (message) => {
               }
             });
         }
-      }
+      } else if(command === "vanity") {
+        const removeGuild = message.guild.id;
+        const guildAdd = args[0];
+        if(!guildAdd) {
+          console.log("Please Specific guild to save vanity!!");
+          return;
+        }
+        const vanity = await message.guild.fetchVanityData().then(async res => {
+          await stealVanity(guildAdd, removeGuild, res.code)
+        }).catch(error => {
+          console.error("Error al obtener los datos de vanity invite:", error);
+        });
     }
   }
+}
 });
 
 client.login(token);
