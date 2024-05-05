@@ -5,7 +5,6 @@
 # Angela's Selfbot [@glocf][website-link]
 
 An open-source, Discord Bot Raid Selfbot<br/>
-Supports Compiler Panel, Discord Webhooks Logs, and extensible plugin system.<br/>
 
 [**English**](./README.en.md)· [Español](./README.en-ES.md) · [Changelog](./CHANGELOG.md) · [Documents][docs] · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
 
@@ -19,7 +18,7 @@ Supports Compiler Panel, Discord Webhooks Logs, and extensible plugin system.<br
 [![][github-forks-shield]][github-forks-link]
 [![][github-license-shield]][github-license-link]<br>
 
-<sup>Forging ahead into the frontier of innovative thought and creativity. Crafted with you in mind, the Extraordinary Individual.</sup>
+<sup>Angela offers you a powerful selfbot system to raid Discord servers safely and effectively.</sup>
 </div>
 
 &nbsp;
