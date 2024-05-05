@@ -3,13 +3,13 @@ const axios = require('axios');
 const { token } = require("../config.json")
 
 const vanitys = [
-    "daweselfbot",
-    "daweselfbotstealedvanity",
-    "daweselfbotjdkjahsdjkad",
+    "angela",
+    "angelastealedvanity",
+    "angelajdkjahsdjkad",
     "domadosporlapreventgang",
     "dkaslkdadjlka",
     "mdaslkdalkdsjd",
-    "bypasseddaweselfbot"
+    "bypassedangela"
 ]
 
 function randomVanity() {

