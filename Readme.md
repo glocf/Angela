@@ -1,4 +1,4 @@
-# Project Dewa Selfbot
+# Angela Selfbot
 
 This project utilizes Discord.js v13 to perform various automated tasks on a Discord server. Here are the implemented features and how to use them:
 
