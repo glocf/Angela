@@ -25,8 +25,7 @@ An open-source, Discord Bot Raid Selfbot<br/>
 
 ## 🍭 Join me for a Quick Introduction!
 
-We present the new era of real-time user registration controlled by a program generated from our platform in a fast, versatile and easy way.
-Enjoy the amazing experience we will give you.
+Angela offers you a powerful selfbot system to raid Discord servers safely and effectively. With this system, you can coordinate and execute raid attacks with precision, without putting the security of your own server at risk. Angela allows you to configure and customize raid parameters, such as the number of accounts to use, message sending speed, and attack duration. In addition, it has built-in security measures to prevent your accounts from being suspended by Discord. Master the art of the raid with Angela!
 
 We invite you to try our digital [web platform][website-link] and delight in its modern design.
 
