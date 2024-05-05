@@ -7,7 +7,7 @@
 An open-source, Discord Bot Raid Selfbot<br/>
 Supports Compiler Panel, Discord Webhooks Logs, and extensible plugin system.<br/>
 
-**English** · [Español](./README.en-ES.md) · [Changelog](./CHANGELOG.md) · [Documents][docs] · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
+[**English**](./README.en.md)· [Español](./README.en-ES.md) · [Changelog](./CHANGELOG.md) · [Documents][docs] · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
 
 <p align="center">
   <img src="https://github.com/glocf/.github/assets/109005083/12397d06-da8a-421d-beed-e1d6993147ac" width="400" />
